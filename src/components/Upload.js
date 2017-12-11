@@ -20,9 +20,9 @@ class Upload extends Component {
 			console.log(reader.result);
 			this.setState({currentImageString: reader.result});
 		}
-		axios.post('http://vcm-1006.vm.duke.edu:5000/api/images',reader.result).then(function (response) {
+		axios.post('http://vcm-1006.vm.duke.edu:5000/api/images',reader.result).then( (response)=> {
 			console.log("success!");
-		}).catch(function (error) {
+		}).catch( (error)=> {
 			console.log("failed to upload into api");
 		});
 	}
