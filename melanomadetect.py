@@ -13,4 +13,3 @@ class Meldetect
         self.label = []
         self.result = []
         (self.labels, self.result) = get_prediction(imagefile)
-        
