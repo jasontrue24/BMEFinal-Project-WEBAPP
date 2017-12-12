@@ -9,7 +9,7 @@ class Sites extends Component {
     }
 
     getData = () => {
-        axios.get('http://vcm-1006.vm.duke.edu:5000/api/Melanoma').then( (data) =>{
+        axios.get('http://vcm-1837.vm.duke.edu:5000/api/Melanoma').then( (data) =>{
             console.log(data);
             this.setState({'sites': data.data});
         });
