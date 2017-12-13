@@ -10,7 +10,8 @@ class Upload extends Component {
 		super();		
 		this.state = {
 			currentImageString: '',
-                        resultString: '',
+                        resultString:[],
+                        predictions : [],
 		}
 	} 
 
@@ -22,10 +23,11 @@ class Upload extends Component {
 		reader.onloadend = () => {
 			console.log(reader.result);
 			this.setState({currentImageString: reader.result});
- axios.post('http://127.0.1:5000/api/images',{data: reader.result}).then( (response)=> {
+ axios.post('http://0.0.0.0:8000/api/images',{data: reader.result}).then( (response)=> {
                         console.log("success!");
                         console.log(response);
-                        this.setState({resultString: response.data});
+                        this.setState({resultString: response.data.labels[0]});
+                        this.setState({predictions: Math.round(response.data.predictions[0]*100).toFixed(2)})
                 }).catch( (error)=> {
                         console.log("failed to upload into api");
                 });
@@ -52,7 +54,7 @@ class Upload extends Component {
                                <RaisedButton label = "Here is the result" primary={true} onClick={this.getData}/>
                                {
                                 
-                                 this.state.resultString
+                                 "There is "+this.state.predictions +" % chance is "+  this.state.resultString
                                }
 			</div>
 		)
