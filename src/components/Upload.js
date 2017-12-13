@@ -41,14 +41,15 @@ class Upload extends Component {
 				<UploadField onFiles={this.onUpload}>
 					<div style={{
 							backgroundColor: 'gray', 
-							width:'200px', 
-							height:'200px',
+							width:'600px', 
+							height:'400px',
 							textAlign: 'center'}}>
 						Upload here
+                                                <img src={this.state.currentImageString} />
 					</div>	
 				</UploadField>
-				<img src={this.state.currentImageString} />
-                               <RaisedButton label = "Check Results" primary={true} onClick={this.getData}/>
+				
+                               <RaisedButton label = "Here is the result" primary={true} onClick={this.getData}/>
                                {
                                 
                                  this.state.resultString
