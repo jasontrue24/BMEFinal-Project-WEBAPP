@@ -50,9 +50,10 @@ render() {
 							}}>
 						
 					</div>	
-				</UploadField>
-				<img src={this.state.currentImageString} />
+			<img src={this.state.currentImageString} />
 
+				</UploadField>
+				
   <ButtonToolbar>
     <Button bsStyle="primary" bsSize="large" onClick={this.getData} active>Here is the result</Button>
   </ButtonToolbar>
