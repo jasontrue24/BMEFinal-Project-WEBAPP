@@ -54,7 +54,7 @@ class Upload extends Component {
                                <RaisedButton label = "Here is the result" primary={true} onClick={this.getData}/>
                                {
                                 
-                                 "There is "+this.state.predictions +" % chance is "+  this.state.resultString
+                               this.state.predictions == ""? "No Data":  "There is "+this.state.predictions +" % chance is "+  this.state.resultString
                                }
 			</div>
 		)
