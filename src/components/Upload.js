@@ -25,7 +25,7 @@ class Upload extends Component {
 		reader.onloadend = () => {
 			console.log(reader.result);
 			this.setState({currentImageString: reader.result});
- axios.post('http://0.0.0.0:8000/api/images',{data: reader.result}).then( (response)=> {
+ axios.post('http://vcm-1006.vm.duke.edu:8000/classify',{data: reader.result}).then( (response)=> {
                         console.log("success!");
                         console.log(response);
                         this.setState({resultString: response.data.labels[0]});
