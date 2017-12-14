@@ -27,7 +27,7 @@ class Upload extends Component {
                         console.log("success!");
                         console.log(response);
                         this.setState({resultString: response.data.labels[0]});
-                        this.setState({predictions: Math.round(response.data.predictions[0]*100).toFixed(2)})
+                        this.setState({predictions: (response.data.predictions[0]*100).toFixed(2)})
                 }).catch( (error)=> {
                         console.log("failed to upload into api");
                 });
@@ -39,7 +39,7 @@ class Upload extends Component {
 	render() {
 	return (
 			<div>
-				<h2>Upload your image</h2>	
+				<h2>Please upload your image to see if it is Melanoma</h2>	
 				<UploadField onFiles={this.onUpload}>
 					<div style={{
 							backgroundColor: 'gray', 
@@ -54,7 +54,7 @@ class Upload extends Component {
                                <RaisedButton label = "Here is the result" primary={true} onClick={this.getData}/>
                                {
                                 
-                               this.state.predictions == ""? "No Data":  "There is "+this.state.predictions +" % chance is "+  this.state.resultString
+                               this.state.predictions == ""? "No Data":  "The chance of "+this.state.resultString +" is "+  this.state.predictions+ "%"
                                }
 			</div>
 		)
