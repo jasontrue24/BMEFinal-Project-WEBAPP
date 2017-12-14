@@ -25,7 +25,7 @@ class Upload extends Component {
 		reader.onloadend = () => {
 			console.log(reader.result);
 			this.setState({currentImageString: reader.result});
- axios.post('http://vcm-1006.vm.duke.edu:8000/classify',{data: reader.result}).then( (response)=> {
+ axios.post('http://0.0.0.0:8000/api/images',{data: reader.result}).then( (response)=> {
                         console.log("success!");
                         console.log(response);
                         this.setState({resultString: response.data.labels[0]});
@@ -55,11 +55,10 @@ render() {
 
   <ButtonToolbar>
     <Button bsStyle="primary" bsSize="large" onClick={this.getData} active>Here is the result</Button>
-    {this.state.predictions == ""? "No Data":  "There is "+this.state.predictions +" % chance is "+  this.state.resultString}
   </ButtonToolbar>
 
 
-ReactDOM.render(buttonsInstance, mountNode);
+{this.state.predictions == ""? "No Data":  "There is "+this.state.predictions +" % chance is "+  this.state.resultString}
 
 
 			</div>
