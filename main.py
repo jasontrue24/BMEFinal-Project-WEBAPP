@@ -22,7 +22,7 @@ def process_image():
         return encode_data
 
 
-@app.route('/classify')
+@app.route('/api/images', methods=['POST'])
 def classify():
     """
     Input (x, y, 3) numpy.ndarray
@@ -31,14 +31,14 @@ def classify():
     global count
     count += 1
     try:
-        input_data = request.json['data']
+        input_data = request.json["data"]
         encoded_data = input_data[input_data.find(',')+1:]
         decoded_data = base64.b64decode(encoded_data)
         
-        with open('/images/TESTME.jpg', 'wb') as wfile:
+        with open('TESTME.jpg', 'wb') as wfile:
             wfile.write(decoded_data)
         
-        img = mpimg.imread('/images/TESTME.jpg')
+        img = mpimg.imread('TESTME.jpg')
         (labels, p) = get_prediction(img)
         predictions = p.tolist()
         classification_mela = "false"
@@ -47,9 +47,9 @@ def classify():
         data = {"labels": labels,
                 "predictions": predictions,
                 "melanocytic": classification_mela}
-        #return jsonify(data), 200
-        ret_str = "This image is predicted to be " + predictions*100.0 + "% malignant."
-        return ret_str, 200
+        return jsonify(data), 200
+        #ret_str = "This image is predicted to be " + predictions*100.0 + "% malignant."
+        #return ret_str, 200
     except Exception as e: #generic error handling
         return "ERROR: " + str(e), 400
     
