@@ -41,21 +41,21 @@ class Upload extends Component {
 render() {
 		return (
 			<div>
-				<h2>Upload your image</h2>	
+				<h5>Upload your image below: </h5>	
 				<UploadField onFiles={this.onUpload}>
 					<div style={{
-							backgroundColor: 'gray', 
-							width:'200px', 
-							height:'200px',
-							textAlign: 'center'}}>
-						Upload here
+							width: '300px',
+    						height: '300px',
+    						background: 'LightSkyBlue',
+							}}>
+						
 					</div>	
 				</UploadField>
 				<img src={this.state.currentImageString} />
 
   <ButtonToolbar>
-    <Button bsStyle="primary" bsSize="large" active>Here is the result</Button>
-    <Button bsSize="large" active>Button</Button>
+    <Button bsStyle="primary" bsSize="large" onClick={this.getData} active>Here is the result</Button>
+    {this.state.predictions == ""? "No Data":  "There is "+this.state.predictions +" % chance is "+  this.state.resultString}
   </ButtonToolbar>
 
 
