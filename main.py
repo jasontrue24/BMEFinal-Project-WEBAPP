@@ -2,9 +2,11 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
+@app.route("/api/hello_world", methods=['POST'])
 def hello_world():
     return 'Hello, world2'
 
+@app.route("/api/dataconversion", methods=['POST'])
 def dataconversion():
     base64img="""we get from online"""
     for i in base64img.keys():
