@@ -51,7 +51,7 @@ def classify():
         #ret_str = "This image is predicted to be " + predictions*100.0 + "% malignant."
         #return ret_str, 200
     except Exception as e: #generic error handling
-        return "ERROR: " + str(e), 400
+        return str(e), 400
     
         
 @app.route("/requests")
