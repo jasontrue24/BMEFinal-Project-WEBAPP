@@ -1,6 +1,9 @@
 # BMEFinal-Project-WEBAPP
 WebApp for Melanoma Detection
 
+The Final RFC is at: https://docs.google.com/document/d/1eoxXDwa1_I3t4VVTowWZwwhW2bRZwS_VejfBKbL90DE/edit#heading=h.ht3dizgas7v2
+The Final write up is at: https://docs.google.com/document/d/1cMbTUNP9RyRo2y6reql4GO85TpMgJRyiLgpHV6Eiu_U/edit
+
 To perform classification through http://vcm-1838.vm.duke.edu/, please upload a possibly melanocytic image at the upload prompt.
 Classification will run and be output at the result region below.
 
