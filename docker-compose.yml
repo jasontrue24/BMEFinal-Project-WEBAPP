@@ -3,15 +3,15 @@ services:
   jupyter:
     build: .
     volumes:
-      - $PWD:/notebooks
-      - $PWD/images:/images
+      - .:/notebooks
+      - ./images:/images
     ports:
       - 8888:8888 
   server:
     build: .
     volumes:
-      - $PWD:/notebooks
-      - $PWD/images:/images
+      - .:/notebooks
+      - ./images:/images
     ports:
       - 8000:8000
     environment:

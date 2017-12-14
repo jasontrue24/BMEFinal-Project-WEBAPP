@@ -22,10 +22,10 @@ def process_image():
         return encode_data
 
 
-@app.route('/api/images', methods=['POST'])
+@app.route('/classify', methods=['POST'])
 def classify():
     """
-    Input (x, y, 3) numpy.ndarray
+    Input base 64 encoded (x, y, 3) image data
     :return: classification label, prediction
     """
     global count
